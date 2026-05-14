@@ -54,7 +54,7 @@ model = smf.ols("median_days_on_market ~ t + post + t_post + rate", data=df).fit
 - `post = -20.3`, still significant
 - `rate` is not significant
 
-Interest rates fell in 2020 --- but they do **not** explain the sharp break in DOM.
+Interest rates fell in 2020 --- but they do not explain the sharp break in DOM.
 
 ### Could It Be Inventory?
 We test whether changes in housing supply explain the shift.
@@ -66,7 +66,7 @@ We add `active_listing_count` (total homes on the market) to the model:
 model = smf.ols("median_days_on_market ~ t + post + t_post + active_listing_count", data=df).fit()
 ```
 
-**Result:**
+Result:
 
 - `post = -16.5`, still significant
 - `active_listing_count` not significant
@@ -80,7 +80,7 @@ Next we test `new_listing_count`, a proxy for seller behavior (willingness to mo
 model = smf.ols("median_days_on_market ~ t + post + t_post + new_listing_count", data=df).fit()
 ```
 
-**Result:**
+Result:
 
 - `new_listing_count = -0.0001`, highly significant (p \< 0.001)
 - `post = -20.7`, still significant
